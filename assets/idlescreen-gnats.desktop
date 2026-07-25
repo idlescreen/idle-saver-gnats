@@ -3,6 +3,6 @@ Type=Application
 Name=Gnats
 Comment=Screensaver effect: gnats
 Exec=idle preview gnats
-Icon=trance-gnats
+Icon=idlescreen-gnats
 Terminal=false
 Categories=Screensaver;
