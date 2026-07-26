@@ -21,11 +21,8 @@ embed-resource = "2"
 
 [package.metadata.deb]
 name = "idle-saver-gnats"
-provides = "trance-plugin-gnats"
-replaces = "trance-plugin-gnats"
-conflicts = "trance-plugin-gnats (<< 2.0.0)"
 maintainer = "idlescreen <jerydleuck@gmail.com>"
-extended-description = "Predator-prey firefly swarm. Official IdleScreen (Trance) screensaver plugin."
+extended-description = "Predator-prey firefly swarm. Official IdleScreen screensaver plugin."
 depends = "libc6"
 section = "utils"
 priority = "optional"
@@ -50,7 +47,5 @@ assets = [
 idle = "*"
 
 [package.metadata.generate-rpm.provides]
-trance-plugin-gnats = "*"
 
 [package.metadata.generate-rpm.obsoletes]
-trance-plugin-gnats = "*"

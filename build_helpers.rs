@@ -7,9 +7,9 @@
 
 use std::path::Path;
 
-pub const DEFAULT_PRODUCT_NAME: &str = "trance-gnats";
-pub const DEFAULT_COMPANY_NAME: &str = "trance";
-pub const DEFAULT_LEGAL_COPYRIGHT: &str = "Copyright \u{00A9} 2026 trance";
+pub const DEFAULT_PRODUCT_NAME: &str = "idle-saver-gnats";
+pub const DEFAULT_COMPANY_NAME: &str = "idlescreen";
+pub const DEFAULT_LEGAL_COPYRIGHT: &str = "Copyright (c) 2026 IdleScreen";
 
 /// Generate a `windows_resource.rc` file that declares the ICO and a
 /// standard VERSIONINFO block, and emit a `cargo:rerun-if-changed` for
