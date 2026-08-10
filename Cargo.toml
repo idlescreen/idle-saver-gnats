@@ -28,6 +28,7 @@ section = "utils"
 priority = "optional"
 assets = [
     ["target/release/libscreensaver_gnats.so", "usr/libexec/idle/screensavers/libscreensaver_gnats.so", "644"],
+    ["libscreensaver_gnats.idleplugin.toml", "usr/libexec/idle/screensavers/libscreensaver_gnats.idleplugin.toml", "644"],
     ["assets/idlescreen-gnats.png", "usr/share/pixmaps/idlescreen-gnats.png", "644"]
 ]
 
@@ -40,6 +41,7 @@ description = "Predator-prey firefly swarm"
 license = "Apache-2.0"
 assets = [
     { source = "target/release/libscreensaver_gnats.so", dest = "/usr/libexec/idle/screensavers/libscreensaver_gnats.so", mode = "644", user = "root", group = "root" },
+    { source = "libscreensaver_gnats.idleplugin.toml", dest = "/usr/libexec/idle/screensavers/libscreensaver_gnats.idleplugin.toml", mode = "644", user = "root", group = "root" },
     { source = "assets/idlescreen-gnats.png", dest = "/usr/share/pixmaps/idlescreen-gnats.png", mode = "644", user = "root", group = "root" }
 ]
 
