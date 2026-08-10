@@ -3,6 +3,8 @@ use super::render_helpers::{draw_connectors, draw_stars};
 use crate::runner::core::TerminalCell;
 
 /// Soft glow sample for bright fireflies (orthogonal neighbors).
+// physics function with many positional inputs (positions, velocities, parameters); refactor to RenderContext struct tracked for Sprint-03 housekeeping.
+#[allow(clippy::too_many_arguments)]
 fn paint_glow(
     grid: &mut [TerminalCell],
     cols: usize,

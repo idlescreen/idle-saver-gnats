@@ -5,6 +5,8 @@ pub use super::physics_helpers::{
 use super::types::{Attractor, Firefly};
 use crate::runner::core::LcgRng;
 
+// physics function with many positional inputs (positions, velocities, parameters); refactor to RenderContext struct tracked for Sprint-03 housekeeping.
+#[allow(clippy::too_many_arguments)]
 pub fn compute_firefly_forces_and_update(
     fireflies: &mut [Firefly],
     attractors: &[Attractor],
