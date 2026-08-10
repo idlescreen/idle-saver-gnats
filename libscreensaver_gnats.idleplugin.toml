@@ -4,7 +4,7 @@
 
 schema_version = 1
 plugin_id      = "io.idlescreen.saver.Gnats"
-plugin_version = "2.0.3"
+plugin_version = "2.1.0"
 api_version    = 1
 
 [entry]
