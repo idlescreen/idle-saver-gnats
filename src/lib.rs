@@ -6,6 +6,16 @@
 )]
 
 pub use idle_api as runner;
+
+/// Returns the IdleScreen plugin API version this saver was built against.
+/// The host loader uses this for ABI negotiation; a mismatch is a hard
+/// refusal (PluginError::ApiVersionMismatch). The function is `extern "C"`
+/// so the host resolves it via `Library::get`.
+#[unsafe(no_mangle)]
+pub extern "C" fn idle_api_version() -> u32 {
+    idle_api::API_VERSION
+}
+
 mod gnats;
 
 #[cfg(test)]
@@ -31,5 +41,18 @@ pub unsafe extern "C" fn destroy_screensaver(ptr: *mut idle_api::ScreensaverInst
         unsafe {
             let _ = Box::from_raw(ptr);
         }
+    }
+}
+
+
+#[cfg(test)]
+mod idle_api_version_tests {
+    #[test]
+    fn symbol_returns_host_api_version() {
+        // The host loader resolves `idle_api_version` via dlsym; this
+        // assertion pins that the saver advertises the same version the
+        // host expects. A regression that drifts the saver (or builds
+        // against a stale idle-api) would fail this test.
+        assert_eq!(unsafe { crate::idle_api_version() }, idle_api::API_VERSION);
     }
 }
