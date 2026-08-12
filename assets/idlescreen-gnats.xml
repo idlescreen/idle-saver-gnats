@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<screensaver name="idlescreen-gnats" _label="Gnats">
-  <command arg="idle start gnats"/>
-  <_description>
-    Retro terminal screensaver effect (gnats) from the screensavers collection.
-  </_description>
-</screensaver>

@@ -1,7 +1,9 @@
 [package]
+authors = ["idlescreen developers"]
+repository = "https://github.com/idlescreen/idlescreen"
 license = "Apache-2.0"
 name = "gnats"
-version = "2.1.0"
+version = "2.2.0"
 edition = "2024"
 description = "Predator-prey firefly swarm"
 publish = false
@@ -13,7 +15,7 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-idle-api = { path = "idle/idle-api" }
+idle-api = { version = "3.1.0", path = "idle/idle-api" }
 libc = "0.2"
 
 [build-dependencies]
@@ -46,7 +48,7 @@ assets = [
 ]
 
 [package.metadata.generate-rpm.requires]
-idle = "*"
+idle-daemon = "*"
 
 [package.metadata.generate-rpm.provides]
 
