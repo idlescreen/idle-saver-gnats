@@ -44,7 +44,6 @@ pub unsafe extern "C" fn destroy_screensaver(ptr: *mut idle_api::ScreensaverInst
     }
 }
 
-
 #[cfg(test)]
 mod idle_api_version_tests {
     #[test]

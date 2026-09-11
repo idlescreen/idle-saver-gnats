@@ -194,9 +194,7 @@ pub fn draw_gnats(gnats: &Gnats, grid: &mut [TerminalCell], cols: usize, rows: u
     // 6. Draw centered logo with glow excitation
     // library 4.1: render the system logo from the live OS info
     // (replaces pre-4.1 `trance_core::logo_lines()` + `logo_dimensions()`).
-    if let Some(logo) =
-        crate::runner::place_centered_logo(cols, rows, &gnats.logo_text, None)
-    {
+    if let Some(logo) = crate::runner::place_centered_logo(cols, rows, &gnats.logo_text, None) {
         let logo_w = logo.width;
         for (r_offset, line) in logo.lines.iter().enumerate() {
             let gy = logo.y + r_offset;

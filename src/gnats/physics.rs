@@ -26,10 +26,7 @@ pub fn compute_firefly_forces_and_update(
     let (cx, cy) = if crate::runner::is_secondary_monitor() {
         (cols_f / 2.0, rows_f / 2.0)
     } else {
-        let primary = crate::runner::get_primary_monitor_bounds(
-            cols_f as usize,
-            rows_f as usize,
-        );
+        let primary = crate::runner::get_primary_monitor_bounds(cols_f as usize, rows_f as usize);
         (
             (primary.start_col + primary.width() / 2) as f32,
             (primary.start_row + primary.height() / 2) as f32,

@@ -147,14 +147,10 @@ impl Screensaver for Gnats {
             self.last_rows = rows;
             self.intro_fade = 0.0;
 
-            self.logo_excitation = crate::runner::place_centered_logo(
-                cols,
-                rows,
-                &self.logo_text,
-                None,
-            )
-            .map(|logo| vec![0.0; logo.width * logo.height])
-            .unwrap_or_default();
+            self.logo_excitation =
+                crate::runner::place_centered_logo(cols, rows, &self.logo_text, None)
+                    .map(|logo| vec![0.0; logo.width * logo.height])
+                    .unwrap_or_default();
 
             pop::create_attractors(&mut self.attractors, cols, rows, self.accent);
 
