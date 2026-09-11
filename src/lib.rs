@@ -52,6 +52,6 @@ mod idle_api_version_tests {
         // assertion pins that the saver advertises the same version the
         // host expects. A regression that drifts the saver (or builds
         // against a stale idle-api) would fail this test.
-        assert_eq!(unsafe { crate::idle_api_version() }, idle_api::API_VERSION);
+        assert_eq!(crate::idle_api_version(), idle_api::API_VERSION);
     }
 }
