@@ -1,6 +1,6 @@
 use crate::gnats::Gnats;
-use crate::runner::core::TerminalCell;
-use crate::runner::core::screensaver::Screensaver;
+use crate::runner::TerminalCell;
+use crate::runner::Screensaver;
 use std::time::{Duration, Instant};
 
 #[test]

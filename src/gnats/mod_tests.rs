@@ -1,5 +1,5 @@
 use super::*;
-use crate::runner::core::TerminalCell;
+use crate::runner::TerminalCell;
 use std::time::Duration;
 
 #[test]

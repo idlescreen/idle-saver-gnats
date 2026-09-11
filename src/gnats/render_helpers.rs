@@ -1,5 +1,5 @@
 use super::types::{Firefly, Star};
-use crate::runner::core::TerminalCell;
+use crate::runner::TerminalCell;
 
 pub fn draw_stars(
     stars: &[Star],

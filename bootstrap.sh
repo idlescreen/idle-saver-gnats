@@ -7,6 +7,10 @@ fi
 
 if [ ! -d "../idle" ] && [ "$(basename "$PWD")" != "idle" ]; then git clone https://github.com/idlescreen/idle ../idle; fi
 
+# Path deps resolve via repo-local `idle/` — CI checks out the engine
+# there; locally it is a gitignored symlink to the sibling clone.
+if [ ! -e idle ] && [ -d ../idle ]; then ln -s ../idle idle; fi
+
 if ! command -v rustup >/dev/null 2>&1; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     if [ -f "$HOME/.cargo/env" ]; then

@@ -1,6 +1,6 @@
 use super::Gnats;
 use super::render_helpers::{draw_connectors, draw_stars};
-use crate::runner::core::TerminalCell;
+use crate::runner::TerminalCell;
 
 /// Soft glow sample for bright fireflies (orthogonal neighbors).
 // physics function with many positional inputs (positions, velocities, parameters); refactor to RenderContext struct tracked for Sprint-03 housekeeping.
@@ -195,7 +195,7 @@ pub fn draw_gnats(gnats: &Gnats, grid: &mut [TerminalCell], cols: usize, rows: u
     // library 4.1: render the system logo from the live OS info
     // (replaces pre-4.1 `trance_core::logo_lines()` + `logo_dimensions()`).
     if let Some(logo) =
-        crate::runner::toolkit::sys_info::place_centered_logo(cols, rows, &gnats.logo_text, None)
+        crate::runner::place_centered_logo(cols, rows, &gnats.logo_text, None)
     {
         let logo_w = logo.width;
         for (r_offset, line) in logo.lines.iter().enumerate() {

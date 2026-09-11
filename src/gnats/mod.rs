@@ -12,9 +12,9 @@ mod update_helpers;
 
 pub use types::{Attractor, Firefly, KillSpark, Star};
 
-use crate::runner::core::screensaver::Screensaver;
-use crate::runner::core::{LcgRng, TerminalCell, hsl_to_rgb, rgb_to_hsl};
-use crate::runner::toolkit::sys_info::{get_system_info, query_current_palette};
+use crate::runner::Screensaver;
+use crate::runner::{LcgRng, TerminalCell, hsl_to_rgb, rgb_to_hsl};
+use crate::runner::{get_system_info, query_current_palette};
 use std::time::Duration;
 
 pub struct Gnats {
@@ -147,7 +147,7 @@ impl Screensaver for Gnats {
             self.last_rows = rows;
             self.intro_fade = 0.0;
 
-            self.logo_excitation = crate::runner::toolkit::sys_info::place_centered_logo(
+            self.logo_excitation = crate::runner::place_centered_logo(
                 cols,
                 rows,
                 &self.logo_text,

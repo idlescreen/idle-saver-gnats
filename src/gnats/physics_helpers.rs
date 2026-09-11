@@ -7,10 +7,10 @@ pub fn update_attractors(
     rows_f: f32,
 ) {
     if attractors.len() >= 3 {
-        let (cx, cy, w, h) = if crate::runner::toolkit::sys_info::is_secondary_monitor() {
+        let (cx, cy, w, h) = if crate::runner::is_secondary_monitor() {
             (cols_f / 2.0, rows_f / 2.0, cols_f, rows_f)
         } else {
-            let primary = crate::runner::toolkit::sys_info::get_primary_monitor_bounds(
+            let primary = crate::runner::get_primary_monitor_bounds(
                 cols_f as usize,
                 rows_f as usize,
             );
@@ -86,7 +86,7 @@ pub fn update_logo_excitations(
     logo_text: &str,
 ) {
     let Some(logo) =
-        crate::runner::toolkit::sys_info::place_centered_logo(cols, rows, logo_text, None)
+        crate::runner::place_centered_logo(cols, rows, logo_text, None)
     else {
         return;
     };

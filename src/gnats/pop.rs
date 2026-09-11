@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 
 use super::types::{Attractor, Firefly, Star};
-use crate::runner::core::LcgRng;
-use crate::runner::core::hsl_to_rgb;
+use crate::runner::LcgRng;
+use crate::runner::hsl_to_rgb;
 
 pub fn spawn_firefly(
     fireflies: &mut Vec<Firefly>,
@@ -11,10 +11,10 @@ pub fn spawn_firefly(
     rows: usize,
     accent: (u8, u8, u8),
 ) {
-    let (cx, cy) = if crate::runner::toolkit::sys_info::is_secondary_monitor() {
+    let (cx, cy) = if crate::runner::is_secondary_monitor() {
         (cols as f32 / 2.0, rows as f32 / 2.0)
     } else {
-        let primary = crate::runner::toolkit::sys_info::get_primary_monitor_bounds(cols, rows);
+        let primary = crate::runner::get_primary_monitor_bounds(cols, rows);
         (
             (primary.start_col + primary.width() / 2) as f32,
             (primary.start_row + primary.height() / 2) as f32,
@@ -35,7 +35,7 @@ pub fn spawn_firefly(
     let speed = rng.next_range(12.0, 24.0);
 
     let color_roll = rng.next_range(0.0, 1.0);
-    let (acc_h, _acc_s, _acc_l) = crate::runner::core::rgb_to_hsl(accent.0, accent.1, accent.2);
+    let (acc_h, _acc_s, _acc_l) = crate::runner::rgb_to_hsl(accent.0, accent.1, accent.2);
     let color = if color_roll < 0.45 {
         accent
     } else if color_roll < 0.72 {
@@ -68,11 +68,11 @@ pub fn create_attractors(
     accent: (u8, u8, u8),
 ) {
     attractors.clear();
-    let (acc_h, _acc_s, _acc_l) = crate::runner::core::rgb_to_hsl(accent.0, accent.1, accent.2);
-    let (cx, cy) = if crate::runner::toolkit::sys_info::is_secondary_monitor() {
+    let (acc_h, _acc_s, _acc_l) = crate::runner::rgb_to_hsl(accent.0, accent.1, accent.2);
+    let (cx, cy) = if crate::runner::is_secondary_monitor() {
         (cols as f32 / 2.0, rows as f32 / 2.0)
     } else {
-        let primary = crate::runner::toolkit::sys_info::get_primary_monitor_bounds(cols, rows);
+        let primary = crate::runner::get_primary_monitor_bounds(cols, rows);
         (
             (primary.start_col + primary.width() / 2) as f32,
             (primary.start_row + primary.height() / 2) as f32,

@@ -24,4 +24,5 @@ __pycache__/
 /build
 /target
 *.scr
-*.exeidle
+*.exe
+idle

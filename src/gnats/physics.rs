@@ -3,7 +3,7 @@ pub use super::physics_helpers::{
     update_stars,
 };
 use super::types::{Attractor, Firefly};
-use crate::runner::core::LcgRng;
+use crate::runner::LcgRng;
 
 // physics function with many positional inputs (positions, velocities, parameters); refactor to RenderContext struct tracked for Sprint-03 housekeeping.
 #[allow(clippy::too_many_arguments)]
@@ -23,10 +23,10 @@ pub fn compute_firefly_forces_and_update(
     let mut forces = vec![(0.0f32, 0.0f32); num_fireflies];
     let attr_scale = attractor_strength.clamp(0.35, 1.15);
 
-    let (cx, cy) = if crate::runner::toolkit::sys_info::is_secondary_monitor() {
+    let (cx, cy) = if crate::runner::is_secondary_monitor() {
         (cols_f / 2.0, rows_f / 2.0)
     } else {
-        let primary = crate::runner::toolkit::sys_info::get_primary_monitor_bounds(
+        let primary = crate::runner::get_primary_monitor_bounds(
             cols_f as usize,
             rows_f as usize,
         );

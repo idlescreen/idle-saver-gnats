@@ -1,6 +1,6 @@
 use super::*;
 use crate::gnats::{KillSpark, Star};
-use crate::runner::core::LcgRng;
+use crate::runner::LcgRng;
 
 #[test]
 fn test_update_attractors() {

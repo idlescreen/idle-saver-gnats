@@ -1,5 +1,5 @@
 use super::{Firefly, Gnats, Star};
-use crate::runner::core::{hsl_to_rgb, rgb_to_hsl};
+use crate::runner::{hsl_to_rgb, rgb_to_hsl};
 
 impl Gnats {
     pub(crate) fn spawn_new_firefly(&mut self, cols: usize, rows: usize) {
@@ -20,8 +20,8 @@ impl Gnats {
         let color = hsl_to_rgb(h, 0.95, 0.60);
 
         // Spawn on the bottom of the screen to make it feel like they wake up and take flight
-        let bounds = if crate::runner::toolkit::sys_info::is_secondary_monitor() {
-            crate::runner::toolkit::sys_info::MonitorCellBounds {
+        let bounds = if crate::runner::is_secondary_monitor() {
+            crate::runner::MonitorCellBounds {
                 start_col: 0,
                 end_col: cols,
                 start_row: 0,
@@ -29,7 +29,7 @@ impl Gnats {
                 is_primary: false,
             }
         } else {
-            crate::runner::toolkit::sys_info::get_primary_monitor_bounds(cols, rows)
+            crate::runner::get_primary_monitor_bounds(cols, rows)
         };
         let x = self
             .rng

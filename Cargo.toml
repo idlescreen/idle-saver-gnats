@@ -15,7 +15,7 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-idle-api = { version = "3.1.0", path = "idle/idle-api" }
+idle-api = { version = "3.2.0", path = "idle/idle-api" }
 libc = "0.2"
 
 [build-dependencies]
